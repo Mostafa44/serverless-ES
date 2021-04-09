@@ -236,7 +236,7 @@ resources:
       Type: AWS::Elasticsearch::Domain
       Properties:
         ElasticsearchVersion: '6.3'
-        DomainName: images-search-${self.provider.stage
+        DomainName: images-search-${self:provider.stage}
         ElasticsearchClusterConfig:
           DedicatedMasterEnabled: false
           InstanceCount: '1'
@@ -252,14 +252,22 @@ resources:
         AccessPolicies:
           Version: '2012-10-17'
           Statement:
-            -
+            - 
               Effect: Allow
               Principal:
-                AWS: '*'
-              Action: 'es:*'
-              Resource: '*'
-
-
+                AWS: 'arn:aws:iam::661172005059:user/udagram-mostafa-dev'
+              Action: 'es:ESHttp*'
+              Resource: !Sub 'arn:aws:es:${self:provider.region}:${AWS::AccountId}:domain/images-search-${self:provider.stage}/*'
+            # - Effect: Allow
+            #   Principal:
+            #     AWS: 'arn:aws:iam::661172005059:user/udagram-mostafa-dev'
+            #   Action: 'es:*'
+            #   Resource: '*'
+            #   Condition: 
+            #     - StringEquals: 
+            #       - aws:SourceIp: 
+            #           - 196.150.4.1
+            #             192.168.1.1
 
 
     BucketPolicy:
