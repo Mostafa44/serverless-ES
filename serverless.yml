@@ -112,13 +112,6 @@ functions:
       API_ID:
         Ref: WebsocketsApi
     handler: src/lambda/s3/sendNotification.handler
-
-  SyncWithElasticSearch:
-    handler: src/lambda/dynamodb/elasticSearchSync.handler
-    events:
-      - stream:
-          type: dynamodb
-          arn: !GetAtt ImagesDynamoDBTable.StreamArn
   
   ConnectHandler:
     handler: src/lambda/websocket/connect.handler
@@ -258,16 +251,15 @@ resources:
                 AWS: 'arn:aws:iam::661172005059:user/udagram-mostafa-dev'
               Action: 'es:ESHttp*'
               Resource: !Sub 'arn:aws:es:${self:provider.region}:${AWS::AccountId}:domain/images-search-${self:provider.stage}/*'
-            # - Effect: Allow
-            #   Principal:
-            #     AWS: 'arn:aws:iam::661172005059:user/udagram-mostafa-dev'
-            #   Action: 'es:*'
-            #   Resource: '*'
-            #   Condition: 
-            #     - StringEquals: 
-            #       - aws:SourceIp: 
-            #           - 196.150.4.1
-            #             192.168.1.1
+            - Effect: Allow
+              Principal:
+                AWS: '*'
+              Action: 'es:ESHttp*'
+              Condition: 
+                IpAddress: 
+                  aws:SourceIp: 
+                      - 196.150.44.26/24
+              Resource: !Sub 'arn:aws:es:${self:provider.region}:${AWS::AccountId}:domain/images-search-${self:provider.stage}/*'
 
 
     BucketPolicy:
