@@ -41,7 +41,7 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
   const newItem = {
     groupId,
     timestamp: Date.now().toString(),
-    id: imageId,
+    imageId,
     ...newImage,
     imageUrl: `https://${bucketName}.s3.amazonaws.com/${imageId}`
   }
