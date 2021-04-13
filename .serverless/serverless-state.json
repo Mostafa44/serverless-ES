@@ -321,7 +321,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/http/getGroups.handler",
               "Runtime": "nodejs12.x",
@@ -356,7 +356,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/http/createGroup.handler",
               "Runtime": "nodejs12.x",
@@ -391,7 +391,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/http/getImages.handler",
               "Runtime": "nodejs12.x",
@@ -426,7 +426,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/http/createImage.handler",
               "Runtime": "nodejs12.x",
@@ -461,7 +461,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/s3/sendNotification.handler",
               "Runtime": "nodejs12.x",
@@ -500,7 +500,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/websocket/connect.handler",
               "Runtime": "nodejs12.x",
@@ -535,7 +535,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/websocket/disconnect.handler",
               "Runtime": "nodejs12.x",
@@ -570,7 +570,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z/serverless-udagram-app.zip"
+                "S3Key": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z/serverless-udagram-app.zip"
               },
               "Handler": "src/lambda/dynamoDb/elasticSearchSync.handler",
               "Runtime": "nodejs12.x",
@@ -1009,7 +1009,7 @@
               }
             }
           },
-          "ApiGatewayDeployment1618129619911": {
+          "ApiGatewayDeployment1618186900149": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1572,26 +1572,9 @@
                 "Statement": [
                   {
                     "Effect": "Allow",
-                    "Principal": {
-                      "AWS": "arn:aws:iam::661172005059:user/udagram-mostafa-dev"
-                    },
                     "Action": "es:ESHttp*",
-                    "Resource": {
-                      "Fn::Sub": "arn:aws:es:eu-west-3:${AWS::AccountId}:domain/images-search-dev/*"
-                    }
-                  },
-                  {
-                    "Effect": "Allow",
                     "Principal": {
                       "AWS": "*"
-                    },
-                    "Action": "es:ESHttp*",
-                    "Condition": {
-                      "IpAddress": {
-                        "aws:SourceIp": [
-                          "196.150.44.26/24"
-                        ]
-                      }
                     },
                     "Resource": {
                       "Fn::Sub": "arn:aws:es:eu-west-3:${AWS::AccountId}:domain/images-search-dev/*"
@@ -2270,26 +2253,9 @@
               "Statement": [
                 {
                   "Effect": "Allow",
-                  "Principal": {
-                    "AWS": "arn:aws:iam::661172005059:user/udagram-mostafa-dev"
-                  },
                   "Action": "es:ESHttp*",
-                  "Resource": {
-                    "Fn::Sub": "arn:aws:es:eu-west-3:${AWS::AccountId}:domain/images-search-dev/*"
-                  }
-                },
-                {
-                  "Effect": "Allow",
                   "Principal": {
                     "AWS": "*"
-                  },
-                  "Action": "es:ESHttp*",
-                  "Condition": {
-                    "IpAddress": {
-                      "aws:SourceIp": [
-                        "196.150.44.26/24"
-                      ]
-                    }
                   },
                   "Resource": {
                     "Fn::Sub": "arn:aws:es:eu-west-3:${AWS::AccountId}:domain/images-search-dev/*"
@@ -2349,7 +2315,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-udagram-app/dev/1618129650876-2021-04-11T08:27:30.876Z",
+    "artifactDirectoryName": "serverless/serverless-udagram-app/dev/1618186986901-2021-04-12T00:23:06.901Z",
     "artifact": ""
   }
 }

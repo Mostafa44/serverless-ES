@@ -245,20 +245,10 @@ resources:
         AccessPolicies:
           Version: '2012-10-17'
           Statement:
-            - 
-              Effect: Allow
-              Principal:
-                AWS: 'arn:aws:iam::661172005059:user/udagram-mostafa-dev'
-              Action: 'es:ESHttp*'
-              Resource: !Sub 'arn:aws:es:${self:provider.region}:${AWS::AccountId}:domain/images-search-${self:provider.stage}/*'
             - Effect: Allow
+              Action: 'es:ESHttp*'
               Principal:
                 AWS: '*'
-              Action: 'es:ESHttp*'
-              Condition: 
-                IpAddress: 
-                  aws:SourceIp: 
-                      - 196.150.44.26/24
               Resource: !Sub 'arn:aws:es:${self:provider.region}:${AWS::AccountId}:domain/images-search-${self:provider.stage}/*'
 
 
